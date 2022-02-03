@@ -1,0 +1,6 @@
+[10-Aug-2021 11:40:52 America/New_York] PHP Notice:  session_start(): A session had already been started - ignoring in /home/konjwwow/demo.konjae.com/support/login.php on line 15
+[10-Aug-2021 11:40:58 America/New_York] PHP Notice:  Undefined variable: pkg_id in /home/konjwwow/demo.konjae.com/support/qoute_request.php on line 116
+[10-Aug-2021 11:41:22 America/New_York] PHP Notice:  Undefined variable: pkg_id in /home/konjwwow/demo.konjae.com/support/contact-us-msgs.php on line 97
+[10-Aug-2021 11:41:22 America/New_York] PHP Notice:  Undefined variable: pkg_id in /home/konjwwow/demo.konjae.com/support/contact-us-msgs.php on line 128
+[10-Aug-2021 11:42:49 America/New_York] PHP Notice:  session_start(): A session had already been started - ignoring in /home/konjwwow/demo.konjae.com/support/login.php on line 15
+[30-Aug-2021 04:00:31 America/New_York] PHP Notice:  session_start(): A session had already been started - ignoring in /home/konjwwow/demo.konjae.com/support/login.php on line 15
