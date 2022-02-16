@@ -100,12 +100,16 @@ if (isset($_SESSION['vendor'])) {
                                             <label for="name">Remarks</label>
                                             <input type="text" readonly name="product_remarks" id="e_remarks" value=""  class="form-control" >
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="pdfpath">PDF File path</label>
+                                            <input type="text" name="pdfpath" id="pdfpath" value="" class="form-control">
 
+                                        </div>
                                         <div class="form-group col-md-12">
                                             <label for="name">Descirption</label>
 
                                             <textarea name="product_desc" id="e_editor" cols="10" rows="3" class="form-control"></textarea>
-                            </div>  
+                                        </div>  
                                     </div> 
                                     <div class="form-row">
                                         <div class="form-group  col-md-6">
@@ -218,20 +222,20 @@ if (isset($_SESSION['vendor'])) {
 ?>
 <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
 <script>
-                                            ClassicEditor
-                                                    .create(document.querySelector('#editor'))
-                                                    .catch(error => {
-                                                        console.error(error);
-                                                    });
-                                            ClassicEditor
-                                                    .create(document.querySelector('#e_editor'))
-                                                    .then(editor => {
-                                                        window.editor = editor;
-                                                        YourEditor = editor;
-                                                    })
-                                                    .catch(error => {
-                                                        console.error(error);
-                                                    });
+                                                                    ClassicEditor
+                                                                            .create(document.querySelector('#editor'))
+                                                                            .catch(error => {
+                                                                                console.error(error);
+                                                                            });
+                                                                    ClassicEditor
+                                                                            .create(document.querySelector('#e_editor'))
+                                                                            .then(editor => {
+                                                                                window.editor = editor;
+                                                                                YourEditor = editor;
+                                                                            })
+                                                                            .catch(error => {
+                                                                                console.error(error);
+                                                                            });
 
 </script>
 <!-- Initialize the plugin: -->
@@ -277,6 +281,7 @@ if (isset($_SESSION['vendor'])) {
                 $('#e_price').val(data.vendor_price);
                 $('#e_qty').val(data.product_quantity);
                 $('#e_remarks').val(data.product_remarks);
+                $('#pdfpath').val(data.product_dics_pdf_path);
                 YourEditor.setData(data.product_desc);
 //                $('#e_editor').value(data.product_desc);
                 //$("#edit_data").html(data);

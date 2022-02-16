@@ -108,6 +108,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 // add_product
+    
     if (isset($_POST['add_product'])) {
         // print_r($_POST);
         $fileNameNew = "";
@@ -143,8 +144,8 @@ if (isset($_SESSION['vendor'])) {
         $attachmentn = json_encode($files);
 
         $ex_position = "KonJaei-" . time();
-
-        $insertResult = $conn->query("INSERT INTO `tbl_products`(`product_id`, `product_name`, `product_desc`, `prod_gellary`, `prod_cat`,`prod_sub_cat`,`city_id`, `product_feature_image`, `vendor_price`, `product_remarks`, `product_quantity`, `vendor_id`, `prod_id_unique`) VALUES(NULL,'$name','$product_desc','$attachmentn','$cat_id','$sub_cat_id','$city_id','$fileNameNew','$price','$remarks', '$quantity','$vender_id','$ex_position')");
+        $pdf = $_POST['pdfpath'];
+        $insertResult = $conn->query("INSERT INTO `tbl_products`(`product_id`,`product_dics_pdf_path`, `product_name`, `product_desc`, `prod_gellary`, `prod_cat`,`prod_sub_cat`,`city_id`, `product_feature_image`, `vendor_price`, `product_remarks`, `product_quantity`, `vendor_id`, `prod_id_unique`) VALUES(NULL,'$pdf','$name','$product_desc','$attachmentn','$cat_id','$sub_cat_id','$city_id','$fileNameNew','$price','$remarks', '$quantity','$vender_id','$ex_position')");
         echo $conn->error;
         //  exit;
         if ($insertResult) {
@@ -542,7 +543,8 @@ if (isset($_SESSION['vendor'])) {
         }
 
         $course_description_n = addslashes($course_description);
-        $update_query = $conn->query("UPDATE `tbl_products` SET `product_name`='$full_name',`product_desc`='$product_desc' $updateThumnail,`vendor_price`='$price',`product_remarks`='$product_remarks',`product_quantity`='$product_quantity' $udpate_filter $status_Filter WHERE `product_id`='$id'");
+        $pdfpath=$_POST["pdfpath"];
+        $update_query = $conn->query("UPDATE `tbl_products` SET `product_name`='$full_name',`product_desc`='$product_desc' $updateThumnail,`vendor_price`='$price',`product_dics_pdf_path`='$pdfpath',`product_remarks`='$product_remarks',`product_quantity`='$product_quantity' $udpate_filter $status_Filter WHERE `product_id`='$id'");
         if ($update_query) {
             $_SESSION['msg']['icon'] = 'success';
             $_SESSION['msg']['title'] = 'success';

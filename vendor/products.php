@@ -105,7 +105,11 @@ if (isset($_SESSION['vendor'])) {
                                             <label for="name">Remarks</label>
                                             <input type="text" readonly name="product_remarks" id="e_remarks" value=""  class="form-control" >
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="pdfpath">PDF File path</label>
+                                            <input type="text" name="pdfpath" id="pdfpath" value="" class="form-control">
 
+                                        </div>
                                         <div class="form-group col-md-12">
                                             <label for="name">Descirption</label>
 
@@ -233,6 +237,13 @@ if (isset($_SESSION['vendor'])) {
                                         <input type="text" name="quantity" class="form-control">
                                     </div>           
                                 </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="pdfpath">PDF File path</label>
+                                        <input type="text" name="pdfpath" value="" class="form-control">
+
+                                    </div>
+                                </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
@@ -240,6 +251,7 @@ if (isset($_SESSION['vendor'])) {
                                         <textarea name="product_desc" id="editor" cols="10" rows="3" class="form-control"></textarea>
                                     </div>
                                 </div>
+
                             </div>  
                             <div class="modal-footer">  
                                 <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Close</button>
@@ -330,6 +342,7 @@ if (isset($_SESSION['vendor'])) {
                 $('#e_price').val(data.vendor_price);
                 $('#e_qty').val(data.product_quantity);
                 $('#e_remarks').val(data.product_remarks);
+                $('#pdfpath').val(data.product_dics_pdf_path);
                 YourEditor.setData(data.product_desc);
 //                $('#e_editor').value(data.product_desc);
                 //$("#edit_data").html(data);
