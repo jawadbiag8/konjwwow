@@ -1061,7 +1061,7 @@ ol {
 
 .product-large h2 {
     color: #ffffff;
-    font-size: 48px;
+    /*font-size: 26px;*/
     font-weight: 700;
     margin-bottom: 18px;
 }

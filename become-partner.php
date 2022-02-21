@@ -52,7 +52,7 @@ include('navbar.php');
                             </div>
                             <div class="ci-text">
                                 <span>Email:</span>
-                                <p>support@konjae.com</p>
+                                <p>info@konjae.com</p>
                             </div>
                         </div>
                     </div>

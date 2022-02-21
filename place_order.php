@@ -74,7 +74,7 @@ include('navbar.php');
                                      mail($to,$mail_subject,$mail_message,$headers);
 
 
-                                     $to = "support@konjae.com";
+                                     $to = "info@konjae.com";
                                      $mail_subject = "New Order Placed";
                                       $mail_message = "
                                       <html>

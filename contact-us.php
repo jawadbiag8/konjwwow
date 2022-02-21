@@ -67,7 +67,7 @@ Fazal e haq Road, Blue Area, Islamabad</p>
                             </div>
                             <div class="ci-text">
                                 <span>Email:</span>
-                                <p>support@konjae.com</p>
+                                <p>info@konjae.com</p>
                             </div>
                         </div>
                     </div>
