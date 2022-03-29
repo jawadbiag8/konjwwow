@@ -20,11 +20,14 @@ include('navbar.php');
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <iframe width="1026" height="577" src="https://www.youtube.com/embed/gOgk07xM81g?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>   
-        </div>   
-    </div>   
-</div>   
+                <iframe class="responsive-iframe" style="
+    width: 100%;
+    height: 500px;
+" src="https://www.youtube.com/embed/gOgk07xM81g?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Faq Section Begin -->
 <div class="faq-section spad">
     <div class="container">
