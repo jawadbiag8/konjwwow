@@ -691,7 +691,9 @@ if(isset($_POST['update_quiz'])){
 
 //delect product
 if(isset($_POST['delete_product'])){
-  
+  $mechantid= $_SESSION['merchant']['mer_name'];
+  $sql = "INSERT INTO tbl_products_delete SELECT d.*, now(),'$mechantid','merchant' FROM tbl_products d WHERE d.product_id = $delete_product;";
+  $insertResult = $conn->query($sql); 
   $insertResult=$conn->query("DELETE FROM `tbl_products` WHERE product_id='$delete_product'");
   echo $conn->error;
   if($insertResult){

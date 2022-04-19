@@ -41,7 +41,7 @@ include('navbar.php');
                                         <?php echo $row['title']; ?>
                                     </h1>
                                     <hr>
-                                    <?php echo $row['contant']; ?>
+                                    <div class="blogcontent"><?php echo $row['contant']; ?></div>
                                     <hr>
                                     <?php
                                 } else {
@@ -54,7 +54,7 @@ include('navbar.php');
                                         <?php echo $row['title']; ?>
                                     </h1>
                                     <hr>
-                                    <?php echo $row['contant']; ?>
+                                    <div class="blogcontent"><?php echo $row['contant']; ?></div>
                                     <hr>
                                     <?php
                                 }

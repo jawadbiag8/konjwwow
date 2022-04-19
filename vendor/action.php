@@ -14,7 +14,7 @@ if (isset($_SESSION['vendor'])) {
     foreach ($_POST as $key => $value) {
         $$key = $value;
     }
-// update_vendor
+    // update_vendor
     if (isset($_POST['update_vendor'])) {
 
         // profile_pic
@@ -88,7 +88,7 @@ if (isset($_SESSION['vendor'])) {
             exit();
         }
     }
-// get_sub_category
+    // get_sub_category
     if (isset($_POST['get_sub_category'])) {
 
         $filterId = $_POST['get_sub_category'];
@@ -107,7 +107,7 @@ if (isset($_SESSION['vendor'])) {
             echo "<option value=''>No SubCategory Available</option>";
         }
     }
-// add_product
+    // add_product
 
     if (isset($_POST['add_product'])) {
         // print_r($_POST);
@@ -125,7 +125,7 @@ if (isset($_SESSION['vendor'])) {
         }
 
 
-// desc_attachment
+        // desc_attachment
         $files = array();
         $gellary_files = $_FILES['product_gallery'];
         if (!empty($gellary_files)) {
@@ -146,10 +146,10 @@ if (isset($_SESSION['vendor'])) {
         $ex_position = "KonJaei-" . time();
         $city_id = $_POST['city_id'];
         $pdf = $_POST['pdfpath'];
-        $sql="INSERT INTO `tbl_products`(`product_dics_pdf_path`, `product_name`, `product_desc`, `prod_gellary`, `prod_cat`,`prod_sub_cat`,`city_id`, `product_feature_image`, `vendor_price`, `product_remarks`, `product_quantity`, `vendor_id`, `prod_id_unique`) VALUES('$pdf','$name','$product_desc','$attachmentn','$cat_id','$sub_cat_id','$city_id','$fileNameNew','$price','$remarks', '$quantity','$vender_id','$ex_position')";
+        $sql = "INSERT INTO `tbl_products`(`product_dics_pdf_path`, `product_name`, `product_desc`, `prod_gellary`, `prod_cat`,`prod_sub_cat`,`city_id`, `product_feature_image`, `vendor_price`, `product_remarks`, `product_quantity`, `vendor_id`, `prod_id_unique`) VALUES('$pdf','$name','$product_desc','$attachmentn','$cat_id','$sub_cat_id','$city_id','$fileNameNew','$price','$remarks', '$quantity','$vender_id','$ex_position')";
         $insertResult = $conn->query($sql);
         echo $conn->error;
-          exit;
+        exit;
         if ($insertResult) {
             $to = "msharifse11@gmail.com";
             $mail_subject = "New Product Are Added For Approval";
@@ -185,7 +185,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// contact_msgs
+    // contact_msgs
     if (isset($_POST['contact_msgs'])) {
         $insertResult = $conn->query("INSERT INTO `contact_us_msgs`(`contact_id`, `contact_name`, `contact_email`, `contact_msgs`) VALUES(NULL,'$name','$email','$msgs')");
         echo $conn->error;
@@ -205,7 +205,7 @@ if (isset($_SESSION['vendor'])) {
             exit();
         }
     }
-// add_account
+    // add_account
     if (isset($_POST['add_account'])) {
         $checkQuery = $conn->query("SELECT * FROM `tbl_accounts` where acc_number='$Account_number_local' AND acc_banks_name='$bank_name'");
         $num = mysqli_num_rows($checkQuery);
@@ -235,7 +235,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// update_order_status
+    // update_order_status
     if (isset($_POST['update_order_status'])) {
         $insertResult = $conn->query("UPDATE `tbl_orders` SET `status`='$status' WHERE `order_id`='$order_id'");
         echo $conn->error;
@@ -254,7 +254,7 @@ if (isset($_SESSION['vendor'])) {
             exit();
         }
     }
-// send_request
+    // send_request
     if (isset($_POST['send_request'])) {
         $insertResult = $conn->query("INSERT INTO `tbl_ads_requests`(`request_id`, `vendor_id`,`product_id`, `pkg_id`, `descriptions`) VALUES(NULL,'$vendor_id','$product_id','$ads_id','$description')");
         echo $conn->error;
@@ -291,7 +291,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// send_email
+    // send_email
     if (isset($_POST['send_email'])) {
         // message
         $insertResult = $conn->query("INSERT INTO `tbl_marketing_email`(`email_id`, `mail_subject`, `mail_content`) VALUES(NULL,'$subject','$message')");
@@ -333,7 +333,7 @@ if (isset($_SESSION['vendor'])) {
             exit();
         }
     }
-// add_operation_kit
+    // add_operation_kit
     if (isset($_POST['add_member'])) {
         $checkQuery = $conn->query("SELECT * FROM `tbl_staff` where mobile='$course_id' AND email='$app_id'");
         $num = mysqli_num_rows($checkQuery);
@@ -364,7 +364,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// edit_member
+    // edit_member
     if (isset($_POST['edit_member'])) {
         $filterId = $_POST['edit_member'];
         $classes = "SELECT * FROM `tbl_applicants` WHERE app_id='$filterId'";
@@ -414,7 +414,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-//edit_product
+    //edit_product
 
     if (isset($_POST['edit_product'])) {
         $filterId = $_POST['edit_product'];
@@ -437,53 +437,53 @@ if (isset($_SESSION['vendor'])) {
                 } elseif ($data['product_status'] == 'disabled') {
                     $disabled = "selected";
                 }
-//                $output .= '                     
-//    <div class="modal-body"> 
-//        <div class="form-row">
-//            <div class="form-group col-md-12">
-//            <input type="hidden" name="id"  value="' . stripslashes($data['product_id']) . '" class="form-control" >
-//                <label for="name">Full Name</label>
-//                <input type="text" name="full_name" readonly  value="' . stripslashes($data['product_name']) . '" class="form-control" >
-//            </div>
-//        </div> 
-//        <div class="form-row">
-//            <div class="form-group col-md-6">
-//                <label for="name"> Price:</label>
-//                <input type="text" name="price" value="' . stripslashes($data['vendor_price']) . '"  class="form-control" >
-//            </div>
-//            </div> 
-//            <div class="form-row">
-//             <div class="form-group col-md-12">
-//                <label for="name">Quantity</label>
-//                <input type="text"  name="product_quantity" value="' . stripslashes($data['product_quantity']) . '"  class="form-control" >
-//            </div>
-//            <div class="form-group col-md-12">
-//                <label for="name">Remarks</label>
-//                <input type="text" readonly name="product_remarks" value="' . stripslashes($data['product_remarks']) . '"  class="form-control" >
-//            </div>
-//           
-//            <div class="form-group col-md-12">
-//            <label for="name">Descirption</label>
-//            <textarea name="product_desc" readonly id="" cols="10" rows="3" class="form-control">' . stripslashes($data['product_desc']) . '</textarea>
-//            </div>        
-//        </div> 
-//        <div class="form-row">
-//        <div class="form-group  col-md-6">
-//            <label for="name">Update Product Feature Image</label>
-//            <input type="file" name="feature_images" class="form-control">
-//        </div> 
-//        <div class="form-group  col-md-6">
-//            <label for="name">Update Product Gallery</label>
-//            <input type="file" name="product_gallery[]" multiple class="form-control">
-//        </div>           
-//        </div>   
-//        </div>
-//    <div class="modal-footer">  
-//    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Close</button>
-//    <button type="submit" name="update_product" class="btn btn-success btn-sm"> Update</button>
-//  </div> 
-//            ';
-//                echo $output;
+                //                $output .= '                     
+                //    <div class="modal-body"> 
+                //        <div class="form-row">
+                //            <div class="form-group col-md-12">
+                //            <input type="hidden" name="id"  value="' . stripslashes($data['product_id']) . '" class="form-control" >
+                //                <label for="name">Full Name</label>
+                //                <input type="text" name="full_name" readonly  value="' . stripslashes($data['product_name']) . '" class="form-control" >
+                //            </div>
+                //        </div> 
+                //        <div class="form-row">
+                //            <div class="form-group col-md-6">
+                //                <label for="name"> Price:</label>
+                //                <input type="text" name="price" value="' . stripslashes($data['vendor_price']) . '"  class="form-control" >
+                //            </div>
+                //            </div> 
+                //            <div class="form-row">
+                //             <div class="form-group col-md-12">
+                //                <label for="name">Quantity</label>
+                //                <input type="text"  name="product_quantity" value="' . stripslashes($data['product_quantity']) . '"  class="form-control" >
+                //            </div>
+                //            <div class="form-group col-md-12">
+                //                <label for="name">Remarks</label>
+                //                <input type="text" readonly name="product_remarks" value="' . stripslashes($data['product_remarks']) . '"  class="form-control" >
+                //            </div>
+                //           
+                //            <div class="form-group col-md-12">
+                //            <label for="name">Descirption</label>
+                //            <textarea name="product_desc" readonly id="" cols="10" rows="3" class="form-control">' . stripslashes($data['product_desc']) . '</textarea>
+                //            </div>        
+                //        </div> 
+                //        <div class="form-row">
+                //        <div class="form-group  col-md-6">
+                //            <label for="name">Update Product Feature Image</label>
+                //            <input type="file" name="feature_images" class="form-control">
+                //        </div> 
+                //        <div class="form-group  col-md-6">
+                //            <label for="name">Update Product Gallery</label>
+                //            <input type="file" name="product_gallery[]" multiple class="form-control">
+                //        </div>           
+                //        </div>   
+                //        </div>
+                //    <div class="modal-footer">  
+                //    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Close</button>
+                //    <button type="submit" name="update_product" class="btn btn-success btn-sm"> Update</button>
+                //  </div> 
+                //            ';
+                //                echo $output;
                 echo json_encode($data);
             }
         } else {
@@ -491,10 +491,10 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// update_product_info
+    // update_product_info
     if (isset($_POST['update_product'])) {
-//        var_dump($_POST);
-//        exit();
+        //        var_dump($_POST);
+        //        exit();
         // course_thumbnail
         $thumbnail = '';
         if (!empty($_FILES['feature_images']['name'])) {
@@ -505,7 +505,7 @@ if (isset($_SESSION['vendor'])) {
                 $thumbnail = $fileNameNew;
             }
         }
-// sharif update
+        // sharif update
 
 
         $updateThumnail = "";
@@ -518,7 +518,7 @@ if (isset($_SESSION['vendor'])) {
         if (!empty($gellary_files)) {
             $total = count($_FILES['product_gallery']['name']);
             echo $total;
-            if ($total > 1):
+            if ($total > 1) :
                 for ($i = 0; $i < $total; $i++) {
                     $fileName = time() . '-' . $_FILES['product_gallery']['name'][$i];
                     $fileDestination = '../common/dist/product_gellary/' . $fileName;
@@ -562,7 +562,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// edit_quiz
+    // edit_quiz
     if (isset($_POST['edit_quiz'])) {
         $filterId = $_POST['edit_quiz'];
         $classes = "SELECT * FROM `tbl_quiz` WHERE quiz_id='$filterId'";
@@ -646,7 +646,7 @@ if (isset($_SESSION['vendor'])) {
             echo "No Record Found";
         }
     }
-// quiz_info
+    // quiz_info
     if (isset($_POST['quiz_info'])) {
         $filterId = $_POST['quiz_info'];
         $classes = "SELECT * FROM `tbl_quiz` WHERE quiz_id='$filterId'";
@@ -743,7 +743,7 @@ if (isset($_SESSION['vendor'])) {
     }
 
 
-// update_lecture
+    // update_lecture
     if (isset($_POST['update_lecture'])) {
         // ',,,,,,,,
         $update_query = $conn->query("UPDATE `tbl_lectures` SET `lec_title`='$lecture_title',`lecture_description`='$lecture_description',`lecture_link`='$lecture_link' WHERE `lec_id`='$lec_id'");
@@ -791,7 +791,7 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 
-// update_quiz
+    // update_quiz
     if (isset($_POST['update_quiz'])) {
         // ',,,,,,,,
         $update_query = $conn->query("UPDATE `tbl_quiz` SET `lec_id`='$lec_id',`q_title`='$q_title',`option_a`='$option_a',`option_a_attachment`='$fileNamea',`option_b`='$option_b',`option_b_attachment`='$fileNameb',`option_c`='$option_c',`option_c_attachment`='$fileNamec',`option_d`='$option_d',`option_d_attachment`='$fileNamed' WHERE `quiz_id`='$quiz_id'");
@@ -809,9 +809,11 @@ if (isset($_SESSION['vendor'])) {
     }
 
 
-//delect product
+    //delect product
     if (isset($_POST['delete_product'])) {
-
+        $vendor_name = $_SESSION['vendor']['vend_name'];
+        $sql = "INSERT INTO tbl_products_delete SELECT d.*, now(),'$vendor_name','vendor' FROM tbl_products d WHERE d.product_id = $delete_product;";
+        $insertResult = $conn->query($sql);
         $insertResult = $conn->query("DELETE FROM `tbl_products` WHERE product_id='$delete_product'");
         echo $conn->error;
         if ($insertResult) {
@@ -832,7 +834,7 @@ if (isset($_SESSION['vendor'])) {
     }
 
 
-//delect account
+    //delect account
     if (isset($_POST['delete_account_'])) {
 
         $insertResult = $conn->query("DELETE FROM `tbl_accounts` WHERE acc_id='$delete_account_'");
@@ -852,4 +854,3 @@ if (isset($_SESSION['vendor'])) {
         }
     }
 }
-?>

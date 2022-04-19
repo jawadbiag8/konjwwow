@@ -53,10 +53,11 @@ if (isset($_SESSION['admin'])) {
         $blogtags = join(",", $_POST['blogtag']);
         $blogcategory = $_POST['blogcategory'];
         $blogtitle = $_POST['blogtitle'];
-        $blogcontent = $_POST['blogcontent'];
+        $blogcontent =  $_POST['blogcontent'];
         $user = $_SESSION["admin"]['id'];
-        $sql = "INSERT INTO `tbl_blog`(`contant`, `user`, `title`, `category`, `tags`) VALUES ('$blogcontent','$user','$blogtitle','$blogcategory','$blogtags')";
+        $sql = "INSERT INTO `tbl_blog`(`contant`, `user`, `title`, `category`, `tags`) VALUES ('".mysqli_real_escape_string($conn,$blogcontent)."','$user','$blogtitle','$blogcategory','$blogtags')";
         $insertResult = $conn->query($sql);
+//        var_dump($sql);exit();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }

@@ -59,7 +59,7 @@ p {
 img {
     max-width: 100%;
 }
-
+.blogcontent img{width: 100% !important;}
 input:focus,
 select:focus,
 button:focus,
@@ -73,6 +73,17 @@ a:focus {
     outline: none;
     color: #fff;
 }
+
+.pi-pic a span {
+    color: #fff;
+    position: absolute;
+    /* transform: rotate(315deg); */
+    padding: 15px 8px;margin: 6px;border-radius: 51%;/* top: -22px; */
+    /* left: -42px; */
+    background: #e7ab3c;
+}
+
+.pi-pic a span:hover,.pi-pic a span:focus {color: #fff !important;}
 
 ul,
 ol {
